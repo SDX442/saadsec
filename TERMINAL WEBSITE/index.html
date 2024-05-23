@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HACHLAFTERMINAL</title>
+<script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.terminal/css/jquery.terminal.min.css"/>
+<link rel="stylesheet" href="style.css"/>
+<link rel="icon" type="image/x-icon" href="pirate.png">
+</head>
+<body>
+    <template id="greetings">
+        _   _    _    ____ _   _ _        _    _____ _____ _____ ____  __  __ ___ _   _    _    _     
+        | | | |  / \  / ___| | | | |      / \  |  ___|_   _| ____|  _ \|  \/  |_ _| \ | |  / \  | |    
+        | |_| | / _ \| |   | |_| | |     / _ \ | |_    | | |  _| | |_) | |\/| || ||  \| | / _ \ | |    
+        |  _  |/ ___ \ |___|  _  | |___ / ___ \|  _|   | | | |___|  _ <| |  | || || |\  |/ ___ \| |___ 
+        |_| |_/_/   \_\____|_| |_|_____/_/   \_\_|     |_| |_____|_| \_\_|  |_|___|_| \_/_/   \_\_____|
+                                                                                                       
+    </template>
+    
+       
+    <script>
+        
+
+        $('body').terminal({
+            
+            
+            hello: function(what) {
+                this.echo('Hello, ' + what +
+                          '. Wellcome to this terminal.');
+
+            },
+            help: function() {
+                this.error('Try Linux Commands : ls -l , ls -a , cd , cat ');
+            },
+            
+            
+            
+            ls: function(Tmp) {
+                if (!Tmp) {
+                    this.echo(' Description               Skills  \n Certificats               [Document] \n LinkedinProfil');
+                } else if (Tmp === '-a') {
+                    this.echo(' Description               Skills  \n Certificats               [Document]  \n .Cv.pdf                   LinkedinProfil ');
+                } else if (Tmp === '-l' ) {
+                    this.echo(' Description               Skills  \n Certificats               [Document] \n LinkedinProfil');
+                } else if (Tmp === '-al') {
+                    this.echo(' Description               Skills  \n Certificats               [Document]  \n .Cv.pdf                   LinkedinProfil');
+                } else if (Tmp === '-la') {
+                    this.echo(' Description               Skills  \n Certificats               [Document]  \n .Cv.pdf                   LinkedinProfil');
+                } else {
+                    this.error('Error Syntax : Try ls -l , ls -a ')
+                }
+            },
+            
+            cat: function(Des) {
+            if (Des === "Description") {
+            this.echo('Cybersecurity engineering student, passionate about offensive security and penetration testing');
+            } else if (Des === 'Skills') {
+            this.echo(' Linux \n Web exploitation \n Network exploitation \n Privillege escaltion  ');
+            } else if (Des === 'Certificats') {
+            this.echo(' Offensive Pentesting (In Progress) --->  TryHackMe \n Jr Pentester --->  TryHackMe \n Jr Pentester --->  NetridersAcademy \n Ethical Hacking Essensials --->  EC CONCIL \n ! Check LinkedinProfil For Credentials ')    
+            } else if (Des === '.Cv.pdf') {
+                window.open("https://cvsaadeddinehachlaf.tiiny.site", "_blank");
+                 
+            } else if (Des === 'LinkedinProfil') {
+                this.error('Try show LinkedinProfil');
+                 
+            } else {
+            this.error('File not found');   
+            }
+                 
+            },
+            
+            
+            show: function (LinkedinProfil) {
+                window.open("https://www.linkedin.com/in/saad-eddine-hachlaf-243257287", "_blank");
+            },
+            
+            cd: function(Document) {
+            if (Document === "Document") {
+            this.set_prompt('S44D@hachlaf ~/Documents $ '); 
+            this.echo('You entered the Documents directory.');
+    
+
+            
+            } else if (Document === '..') {
+            this.set_prompt('S44D@hachlaf ~ $ ');
+            } else {
+            this.error('Invalid directory.');
+            }
+            
+            },
+           
+           
+            
+            
+             
+        }, {
+            greetings: greetings.innerHTML  + '\n Welcome to my terminal , please type help to show commands !! ', 
+            prompt: 'S44D@hachlaf ~ $ '
+            
+            
+
+
+        });
+        
+
+        
+        </script>
+    
+</body>
+</html>
